@@ -1,0 +1,11 @@
+<%= form_tag sessions_path do %>  
+<p>  
+  <%= label_tag :name %><br />  
+  <%= text_field_tag :name, params[:name] %>
+</p>  
+<p>  
+  <%= label_tag :pin %><br />  
+  <%= password_field_tag :pin %>  
+</p>  
+<p><%= submit_tag "Login"%></p>  
+<% end %>

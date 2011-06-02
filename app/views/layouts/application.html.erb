@@ -8,7 +8,10 @@
 </head>
 <body>
 
-<%= yield %>
+  <% flash.each do |key, value| %>  
+    <%= content_tag :div, value, :id => "flash_#{key}" %>  
+  <% end %>
+  <%= yield %>
 
 </body>
 </html>
