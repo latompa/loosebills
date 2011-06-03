@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe User do
   it { should validate_presence_of :name }
+  it { should have_one :account }
+  it { should validate_presence_of :account }
   
   describe "name uniqueness" do
     before { Factory(:user) }

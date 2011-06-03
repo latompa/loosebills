@@ -3,11 +3,14 @@ class User < ActiveRecord::Base
   attr_accessor :pin
 
   validates_presence_of :name
+  validates_presence_of :account
   validates_uniqueness_of :name
 
   before_save :hash_pin
   
   validates_format_of :pin, :with => /^[0-9]{4}$/, :on => :create, :message => "should be 4 digits"
+  
+  has_one :account
 
   def hash_pin
     if pin.present?

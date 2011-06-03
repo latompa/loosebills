@@ -32,3 +32,11 @@ end
 Then /^I should see a user locked out message$/ do
   steps %Q{ Then I should see "User is locked out due to too many login attempts"}
 end
+
+Given /^I am logged in$/ do
+  visit(new_session_url)
+  fill_in("Name", :with => @user.name)
+  fill_in("Pin", :with => "1234")
+  click_button("Login")
+end
+
