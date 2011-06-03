@@ -17,7 +17,26 @@ class User < ActiveRecord::Base
   end
   
   def valid_pin?(pin)
-    BCrypt::Engine.hash_secret(pin, self.pin_salt) == self.pin_hash
+    (!locked_out? && pin_matches?(pin)).tap do |valid|
+      if valid
+        update_attribute(:failed_logins, 0)
+      else
+        increment(:failed_logins, 1)
+        save
+      end
+    end
   end
-
+  
+  def locked_out? 
+    failed_logins >= MAX_LOGINS
+  end
+  
+  def remaining_logins
+    (MAX_LOGINS - failed_logins) < 0 ? 0 : (MAX_LOGINS - failed_logins)
+  end
+  
+  private
+  def pin_matches?(pin)
+    (BCrypt::Engine.hash_secret(pin, self.pin_salt) == self.pin_hash)
+  end
 end

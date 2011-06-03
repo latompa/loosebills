@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110602001326) do
+ActiveRecord::Schema.define(:version => 20110602195653) do
 
   create_table "users", :force => true do |t|
     t.string   "name"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(:version => 20110602001326) do
     t.string   "pin_salt"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "failed_logins", :default => 0
   end
 
 end

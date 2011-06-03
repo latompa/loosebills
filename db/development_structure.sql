@@ -33,7 +33,8 @@ CREATE TABLE users (
     pin_hash character varying(255),
     pin_salt character varying(255),
     created_at timestamp without time zone,
-    updated_at timestamp without time zone
+    updated_at timestamp without time zone,
+    failed_logins integer DEFAULT 0
 );
 
 
@@ -42,7 +43,6 @@ CREATE TABLE users (
 --
 
 CREATE SEQUENCE users_id_seq
-    START WITH 1
     INCREMENT BY 1
     NO MAXVALUE
     NO MINVALUE
@@ -83,3 +83,5 @@ CREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations USING btree (v
 --
 
 INSERT INTO schema_migrations (version) VALUES ('20110602001326');
+
+INSERT INTO schema_migrations (version) VALUES ('20110602195653');
