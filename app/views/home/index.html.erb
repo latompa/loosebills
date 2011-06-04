@@ -1,6 +1,7 @@
 <div id="account">
   <span class="greeting">
     Welcome <strong><%= current_user.name %></strong>
+    <span class="logout"><%= link_to "Logout", logout_path%></span>
   </span>
   <span class="balance">
     Balance: <strong><%= number_to_currency current_user.account.balance, :precision => 0 %></strong>

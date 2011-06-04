@@ -27,6 +27,19 @@ h2 {
   line-height: 34px;
 }
 
+a {
+  color: #1E90FF;
+  text-decoration: none;
+}
+
+a.visited {
+  color: #1E90FF;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 .flash {
   margin: 10px;
   padding: 10px;
@@ -71,8 +84,8 @@ span.balance {
   font-weight: bold;
 }
 
-span.balance {
-  
+span.logout {
+  font-size: 14px;
 }
 
 div#withdraw {
