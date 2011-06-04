@@ -3,6 +3,7 @@ Feature: cash withdrawal
   Background:
     Given I have set up a user
     And I am logged in
+    And the ATM machine has bills
 
   Scenario: sufficient funds
     Given I have a positive balance

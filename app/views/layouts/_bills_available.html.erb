@@ -1,0 +1,3 @@
+<% unless Atm.bills_available?(20) %>
+  <%=content_tag :div, "Cash can't be dispensed at this time", :id => "no_bills_available"%>
+<% end %>

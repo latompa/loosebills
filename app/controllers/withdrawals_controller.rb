@@ -3,11 +3,11 @@ class WithdrawalsController < ApplicationController
   before_filter :load_account
   
   def create
-    @withdrawal = @account.withdraw params[:amount]
-    if @withdrawal.save
+    @withdrawal = @account.withdrawals.create :amount => params[:amount]
+    if @withdrawal.persisted?
       redirect_to @withdrawal
     else
-      flash[:error] = @withdrawal.error.full_messages
+      flash[:error] = @withdrawal.errors.full_messages.join(", ")
       redirect_to root_path
     end
   end

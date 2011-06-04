@@ -32,7 +32,6 @@ CREATE TABLE accounts (
 --
 
 CREATE SEQUENCE accounts_id_seq
-    START WITH 1
     INCREMENT BY 1
     NO MAXVALUE
     NO MINVALUE
@@ -44,6 +43,37 @@ CREATE SEQUENCE accounts_id_seq
 --
 
 ALTER SEQUENCE accounts_id_seq OWNED BY accounts.id;
+
+
+--
+-- Name: bills; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE bills (
+    id integer NOT NULL,
+    denomination integer,
+    units integer,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: bills_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE bills_id_seq
+    INCREMENT BY 1
+    NO MAXVALUE
+    NO MINVALUE
+    CACHE 1;
+
+
+--
+-- Name: bills_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE bills_id_seq OWNED BY bills.id;
 
 
 --
@@ -97,7 +127,8 @@ CREATE TABLE withdrawals (
     account_id integer,
     amount integer DEFAULT 0,
     created_at timestamp without time zone,
-    updated_at timestamp without time zone
+    updated_at timestamp without time zone,
+    bills text
 );
 
 
@@ -106,7 +137,6 @@ CREATE TABLE withdrawals (
 --
 
 CREATE SEQUENCE withdrawals_id_seq
-    START WITH 1
     INCREMENT BY 1
     NO MAXVALUE
     NO MINVALUE
@@ -131,6 +161,13 @@ ALTER TABLE accounts ALTER COLUMN id SET DEFAULT nextval('accounts_id_seq'::regc
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE bills ALTER COLUMN id SET DEFAULT nextval('bills_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
 
 
@@ -147,6 +184,14 @@ ALTER TABLE withdrawals ALTER COLUMN id SET DEFAULT nextval('withdrawals_id_seq'
 
 ALTER TABLE ONLY accounts
     ADD CONSTRAINT accounts_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: bills_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY bills
+    ADD CONSTRAINT bills_pkey PRIMARY KEY (id);
 
 
 --
@@ -183,3 +228,7 @@ INSERT INTO schema_migrations (version) VALUES ('20110602195653');
 INSERT INTO schema_migrations (version) VALUES ('20110603011456');
 
 INSERT INTO schema_migrations (version) VALUES ('20110603175818');
+
+INSERT INTO schema_migrations (version) VALUES ('20110603200658');
+
+INSERT INTO schema_migrations (version) VALUES ('20110604001952');
