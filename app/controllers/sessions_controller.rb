@@ -1,3 +1,5 @@
+require 'user_admin'
+
 class SessionsController < ApplicationController
   include ActionView::Helpers::TextHelper
   
