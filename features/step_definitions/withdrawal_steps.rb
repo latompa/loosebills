@@ -10,8 +10,8 @@ end
 Then /^I should see the cash$/ do
   steps %Q{
     Then I should see "Please take your cash"
-    And I should see "$40"
   }
+  page.has_selector?("li.bill_20", :count => 2).should be_true
 end
 
 Then /^my account should be debited$/ do

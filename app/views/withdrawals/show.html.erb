@@ -1,5 +1,11 @@
 <h1>Please take your cash</h1>
 
-<p><%= number_to_currency @withdrawal.amount %></p>
+<ul>
+<% @withdrawal.bills.each do |denomination, units| %>
+  <% units.times do %>
+    <%=content_tag :li, denomination, :class => "bill_#{denomination}"%>
+  <% end %>
+<% end %>
+</ul>
 
 <%= link_to "Taking cash", root_path %>
