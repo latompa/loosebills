@@ -5,7 +5,13 @@ class Bill < ActiveRecord::Base
   
   scope :by_highest_denomination, :order => "denomination DESC"
   scope :denomination, lambda {|denomination| where(:denomination => denomination) }
-    
+
+  def take(requested_units)
+    raise "can't take #{requested_units} of #{self.denomination}, only #{units} available" if requested_units > units 
+    self.units -= requested_units
+    save
+  end
+      
   def self.available?(denomination, amount)
     bills = Bill.where(:denomination => denomination).first
     if bills
@@ -15,12 +21,6 @@ class Bill < ActiveRecord::Base
     end
   end
     
-  def take(requested_units)
-    raise "can't request #{requested_units} of #{self.denomination}, only #{units} available" if requested_units > units 
-    self.units -= requested_units
-    save
-  end
-  
   def self.get_as_many_as_possible(denomination, amount)
     requested_units = amount / denomination
     available_units = Bill.denomination(denomination).first.units
