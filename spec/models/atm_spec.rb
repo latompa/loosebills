@@ -15,7 +15,7 @@ describe Atm do
     it { Atm.make_wad(2000).should == {} }
   end
 
-  shared_examples_for "bill inventory" do |amount, expected_inventory|
+  shared_examples_for "bill inventory after dispense" do |amount, expected_inventory|
     before do
       Atm.dispense(amount)
     end
@@ -33,9 +33,9 @@ describe Atm do
       Factory(:bill, :denomination => 100, :units => 4)
     end
     
-    it_should_behave_like "bill inventory", 80,   {20 => 1, 100 => 4}
-    it_should_behave_like "bill inventory", 120,  {20 => 4, 100 => 3}
-    it_should_behave_like "bill inventory", 180,  {20 => 1, 100 => 3}
-    it_should_behave_like "bill inventory", 500,  {20 => 0, 100 => 0}
+    it_should_behave_like "bill inventory after dispense", 80,   {20 => 1, 100 => 4}
+    it_should_behave_like "bill inventory after dispense", 120,  {20 => 4, 100 => 3}
+    it_should_behave_like "bill inventory after dispense", 180,  {20 => 1, 100 => 3}
+    it_should_behave_like "bill inventory after dispense", 500,  {20 => 0, 100 => 0}
   end
 end
