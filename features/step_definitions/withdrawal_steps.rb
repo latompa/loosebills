@@ -3,8 +3,10 @@ When /^I follow an amount choice$/ do
 end
 
 Then /^I should not see any clickable withdrawal choices$/ do
-  page.should_not have_link "$40"
-  page.should have_content "$40"
+  ["$20","$40", "$80", "$100", "120"].each do |amount|
+    page.should_not have_link amount
+    page.should have_content amount
+  end
 end
 
 Then /^I should see the cash$/ do

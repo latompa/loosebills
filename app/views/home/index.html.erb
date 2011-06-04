@@ -15,7 +15,7 @@
   <h2>Withdraw Cash</h2>
 
   <ul class="withdrawal_amounts">
-    <% [20,40,80,100,120].each do |amount| %>
+    <% Atm.withdrawal_choices.each do |amount| %>
     <% formatted_amount = number_to_currency amount, :precision => 0 %>
     <li>
       <%= link_to_if sufficient_funds?(amount), formatted_amount, withdrawals_path(:amount => amount), :method => :post do %>

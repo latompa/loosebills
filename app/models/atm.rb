@@ -1,5 +1,8 @@
 class Atm
 
+  cattr_accessor :withdrawal_choices
+  @@withdrawal_choices = [20, 40, 80, 100, 120]
+  
   def self.bills_available?(amount_requested)
     Bill.all.find do |bill|
       (bill.denomination * bill.units) >= amount_requested 
@@ -31,4 +34,5 @@ class Atm
       end
     end
   end
+
 end
