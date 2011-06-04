@@ -12,6 +12,6 @@ end
 
 Then /^I should see my balance$/ do
   steps %Q{
-    Then I should see "Your balance: $#{@starting_balance}"
+    Then I should see "Balance: $#{@starting_balance}"
   }
 end

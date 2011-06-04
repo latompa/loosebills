@@ -1,2 +1,14 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
+$(function() {
+ 
+ offset=0;
+ $('ul.cash li.bill').each(function(gg) {
+   denomination = $(this).attr('class').replace("bill", "").replace(" ","")
+   $(this).html("<img src='/images/" + denomination + ".jpg'/>");
+   
+   $(this).css('top', offset +"px");
+   $(this).css('left', offset + "px");
+   offset += 20;
+   
+ });
+ 
+});

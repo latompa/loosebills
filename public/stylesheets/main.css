@@ -1,0 +1,124 @@
+body {
+  background: #ddd;
+  font: normal 14px helvetica,arial,sans-serif;
+  color: #555;
+}
+
+#main {
+  margin: 20px auto;
+  padding: 10px;
+  width: 700px;
+  background: #f9f9f9;
+  border-top: 1px solid #aaa;
+  border-left: 1px solid #aaa;
+  border-right: 1px solid #aaa;
+  border-bottom: 3px solid #999;
+}
+
+header {
+  font-size: 24px;
+  font-weight: bold;
+  color: #444;
+  padding: 10px;
+}
+
+h2 {
+  font-size: 24px;
+  line-height: 34px;
+}
+
+.flash {
+  margin: 10px;
+  padding: 10px;
+}
+
+.flash.notice {
+  background: #f2efb6;
+  border: 1px solid #b8bb88;
+}
+
+.flash.error {
+  background: #e2c6bb;
+  border: 1px solid #e2745c;
+}
+
+#content {
+  padding: 10px;
+}
+
+form.login p {
+  margin-bottom: 20px;
+}
+
+form.login input[type="text"], form.login input[type="password"] {
+  padding: 5px;
+}
+
+span.greeting {
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  color: #444;
+}
+span.greeting strong {
+  color: #444;
+}
+
+span.balance {
+  color: #444;
+  float: right;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+span.balance {
+  
+}
+
+div#withdraw {
+  margin-top: 20px;
+}
+
+ul.withdrawal_amounts li a, ul.withdrawal_amounts li span.insufficient {
+  float: left;
+  display: block;
+  text-decoration: none;
+  color: #777;
+  font-size: 28px;
+  width: 104px;
+  text-align: center;
+  border: 1px solid #999;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  padding: 10px;
+  margin-right: 12px;
+}
+
+ul.withdrawal_amounts li span.insufficient {
+  color: #ddd;
+  border: 1px solid #ddd;
+}
+
+ul.withdrawal_amounts li:last-child a, ul.withdrawal_amounts li:last-child span {
+  margin-right: 0px;
+}
+
+ul.withdrawal_amounts li a:hover {
+  background: #ddd;
+  color: #222;
+}
+
+ul.withdrawal_amounts li a {
+  padding: 10px;
+} 
+
+ul.cash {
+  position: relative;
+  height: 200px;
+  margin-top: 10px;
+}
+
+ul.cash li {
+  position: absolute;
+  top: 0px;
+}

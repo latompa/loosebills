@@ -1,11 +1,13 @@
-<h1>Please take your cash</h1>
+<h2>Please take your cash</h2>
 
-<ul>
+<p><%= link_to "Taking cash", root_path, :class=>"medium blue awesome button" %></p>
+
+<ul class="cash">
 <% @withdrawal.bills.each do |denomination, units| %>
   <% units.times do %>
-    <%=content_tag :li, denomination, :class => "bill_#{denomination}"%>
+    <%=content_tag :li, denomination, :class => "bill bill_#{denomination}"%>
   <% end %>
 <% end %>
 </ul>
 
-<%= link_to "Taking cash", root_path %>
+<br style="clear: both"/>

@@ -2,19 +2,24 @@
 <html>
 <head>
   <title>Loosebills</title>
-  <%= stylesheet_link_tag :all %>
+  <%= stylesheet_link_tag ['reset', 'main', 'buttons'] %>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
 </head>
 <body>
 
-  <% flash.each do |key, value| %>  
-    <%= content_tag :div, value, :id => "flash_#{key}" %>  
-  <% end %>
-  
-  <%= render :partial => "/layouts/bills_available" %>
-  
-  <%= yield %>
+  <div id="main">
+    <header>
+      <%= image_tag "logo.png"%>
+    </header>
+    
+    <%= render :partial => "/layouts/flashes" %>
+    <%= render :partial => "/layouts/bills_available" %>
 
+    <div id="content">
+      <%= yield %>
+    </div>
+    
+  </div>
 </body>
 </html>
