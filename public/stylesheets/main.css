@@ -135,3 +135,27 @@ ul.cash li {
   position: absolute;
   top: 0px;
 }
+
+ul.users li {
+  padding: 10px;
+}
+
+ul.users li span {
+  display: inline-block;
+}
+
+span.name {
+  width: 30px;
+}
+span.pin {
+  width: 50px;
+  text-align: right;
+}
+span.pin strong, span.starting_balance strong {
+  display: block;
+  font-weight: bold;
+}
+span.starting_balance {
+  width: 120px;
+  text-align: right;
+}

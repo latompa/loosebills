@@ -1,3 +1,4 @@
+
 $(function() {
  
  offset=0;
@@ -7,8 +8,11 @@ $(function() {
    
    $(this).css('top', offset +"px");
    $(this).css('left', offset + "px");
-   offset += 20;
-   
+   offset += 20;   
+ });
+ 
+ $('#hint_link').click(function() {
+   $('#user_hints').toggle();
  });
  
 });

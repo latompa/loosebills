@@ -7,5 +7,11 @@
   <%= label_tag :pin %><br />  
   <%= password_field_tag :pin %>  
 </p>  
-<p><%= submit_tag "Login", :class => "large awesome"%></p> 
+<p>
+  <%= submit_tag "Login", :class => "large awesome"%> 
+  <%= link_to "Hint", '#', :id => "hint_link" %>
+</p> 
 <% end %>
+
+<!-- inserted here for demo purposes -->
+<%= render :partial => "/sessions/user_hints"%>
