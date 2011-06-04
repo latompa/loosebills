@@ -1,7 +1,6 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
-#   Mayor.create(:name => 'Daley', :city => cities.first)
+require 'user_admin'
+
+Loosebills::UserAdmin.reset_users
+Bill.delete_all
+Bill.create :denomination => 20, :units => 20
+Bill.create :denomination => 100, :units => 20
