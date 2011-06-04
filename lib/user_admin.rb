@@ -15,9 +15,9 @@ module Loosebills
 
     def UserAdmin.users
       [
-        {:name => "Alice", :pin => "7643", :balance => 2000},
-        {:name => "Bob",   :pin => "5954", :balance => 22400},
-        {:name => "Clyde", :pin => "1562", :balance => 100},
+        {:name => "alice", :pin => "7643", :balance => 2000},
+        {:name => "bob",   :pin => "5954", :balance => 22400},
+        {:name => "clyde", :pin => "1562", :balance => 100},
       ]
     end
   end
