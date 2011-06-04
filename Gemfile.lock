@@ -69,6 +69,9 @@ GEM
     gherkin (2.3.10)
       json (>= 1.4.6)
     i18n (0.5.0)
+    jquery-rails (1.0.9)
+      railties (~> 3.0)
+      thor (~> 0.14)
     json (1.5.1)
     json_pure (1.5.1)
     launchy (0.4.0)
@@ -142,6 +145,7 @@ DEPENDENCIES
   cucumber-rails
   database_cleaner
   factory_girl_rails
+  jquery-rails
   launchy
   pg
   rails (= 3.0.7)

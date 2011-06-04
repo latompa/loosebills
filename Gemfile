@@ -3,6 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.7'
 gem 'pg'
 gem 'bcrypt-ruby', :require => 'bcrypt' 
+gem "jquery-rails"
 
 group :development, :test do
   gem 'cucumber-rails'
