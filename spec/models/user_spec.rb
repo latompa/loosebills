@@ -38,11 +38,11 @@ describe User do
   describe "#failed_logins" do
     let(:user) {Factory(:user, :failed_logins => 1)}
     
-    it "keeps failed_logins at 0 with correct PIN valid" do
+    it "resets failed_login" do
       user.valid_pin?("1234")
       user.failed_logins.should == 0
     end
-    it "resets failed login count to 0 with correct PIN" do 
+    it "increases failed_login" do 
       user.valid_pin?("7955")
       user.failed_logins.should == 2
     end
@@ -55,7 +55,7 @@ describe User do
     it { valid_user.locked_out?.should_not be_true}
     it { locked_user.locked_out?.should be_true}
     it "won't let a valid PIN to be used" do
-      locked_user.valid_pin?("7955").should be_false
+      locked_user.valid_pin?("1234").should be_false
     end
   end
   
