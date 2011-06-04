@@ -9,3 +9,9 @@ Given /^I have a zero balance$/ do
   @account = @user.create_account :balance => @starting_balance
   @account.save
 end
+
+Then /^I should see my balance$/ do
+  steps %Q{
+    Then I should see "Your balance: $#{@starting_balance}"
+  }
+end

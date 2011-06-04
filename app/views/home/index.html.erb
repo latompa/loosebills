@@ -1,6 +1,9 @@
-Welcome <%= current_user.name %>
+<h1>Welcome <%= current_user.name %></h1>
 
-<h1>Withdrawal</h1>
+<h2>Your balance: <%= number_to_currency current_user.account.balance %> </h2>
+
+
+<h2>Withdrawal</h2>
 
 <%= link_to_if sufficient_funds?(40), "$40", withdrawals_path(:amount => 40), :method => :post do %>
   <%= content_tag :span, "$40", :class => "insufficient" %>
