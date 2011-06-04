@@ -31,11 +31,11 @@ class User < ActiveRecord::Base
   end
   
   def locked_out? 
-    failed_logins >= MAX_LOGINS
+    failed_logins >= MAX_FAILED_LOGINS
   end
   
   def remaining_logins
-    (MAX_LOGINS - failed_logins) < 0 ? 0 : (MAX_LOGINS - failed_logins)
+    (MAX_FAILED_LOGINS - failed_logins) < 0 ? 0 : (MAX_FAILED_LOGINS - failed_logins)
   end
   
   private

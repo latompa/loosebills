@@ -1,1 +1,0 @@
-MAX_LOGINS = 3
