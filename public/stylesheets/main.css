@@ -7,7 +7,7 @@ body {
 #main {
   margin: 20px auto;
   padding: 10px;
-  width: 700px;
+  width: 500px;
   background: #f9f9f9;
   border-top: 1px solid #aaa;
   border-left: 1px solid #aaa;
@@ -92,13 +92,17 @@ div#withdraw {
   margin-top: 20px;
 }
 
+ul.withdrawal_amounts {
+  margin-top: 10px;
+}
+
 ul.withdrawal_amounts li a, ul.withdrawal_amounts li span.insufficient {
   float: left;
   display: block;
   text-decoration: none;
   color: #777;
   font-size: 28px;
-  width: 104px;
+  width: 64px;
   text-align: center;
   border: 1px solid #999;
   -moz-border-radius: 5px;
